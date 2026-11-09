@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cómo cambia el trabajo de quien programa con la IA: tareas delegables, criterio humano y habilidades.">
+    <title>El futuro del desarrollador | Inteligencia Artificial aplicada al desarrollo de software</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="index.html" aria-label="Programar con IA, ir al inicio"><span class="brand-icon" aria-hidden="true">✦</span><span>PROGRAMAR CON IA<small>Desarrollo de Software V</small></span></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-list" id="nav-lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="funcionamiento.html">Funcionamiento</a></li>
+                    <li><a href="aplicaciones.html">Aplicaciones</a></li>
+                    <li><a href="demostracion.html">Demostración</a></li>
+                    <li><a href="ventajas y riesgos.html">Ventajas y riesgos</a></li>
+                    <li><a href="futuro.html" class="activo" aria-current="page">Futuro</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra-progreso" aria-hidden="true"><span style="width: 86%"></span></div>
+    </header>
+    <div class="ubicacion">
+        <div class="container">
+            <span>Sección 6 de 7: <strong>Futuro</strong></span>
+            <span>Tema: Inteligencia Artificial aplicada al desarrollo de software</span>
+        </div>
+    </div>
+    <main id="contenido" tabindex="-1">
+
+        <div class="container cabecera-pagina">
+            <h1>El futuro del desarrollador</h1>
+            <p>Si el asistente escribe parte del código, ¿qué hace la persona? Su trabajo se desplaza de teclear a especificar, supervisar y decidir.</p>
+        </div>
+
+        <section class="seccion" aria-labelledby="cambio">
+            <div class="container">
+                <div class="dos-columnas">
+                    <div>
+                        <h2 id="cambio">Del escribir al dirigir</h2>
+                        <p style="margin-top: 1rem;">Nadie sabe con exactitud cómo evolucionará la profesión. Lo que sí se observa es un cambio de énfasis: menos tiempo en la sintaxis y más en entender el problema, evaluar propuestas y garantizar la calidad.</p>
+                        <p style="margin-top: 1rem;">Estas son tendencias, no predicciones cerradas: dependen de cómo mejoren las herramientas y de las decisiones de cada organización.</p>
+                    </div>
+                    <figure class="figura">
+                        <img src="img/ciclo-trabajo.jpg" width="520" height="360" alt="Ciclo de cinco pasos: definir, delegar, revisar, probar y decidir, con el criterio humano en el centro.">
+                        <figcaption>Un ciclo de trabajo con asistentes: el criterio humano cierra cada vuelta.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="comparacion">
+            <div class="container">
+                <div class="encabezado-seccion"><h2 id="comparacion">Cómo cambia el trabajo</h2></div>
+                <div class="tabla-scroll">
+                    <table>
+                        <caption>Énfasis del trabajo de programación: tendencia</caption>
+                        <thead><tr><th scope="col">Aspecto</th><th scope="col">Antes</th><th scope="col">Con asistentes de IA</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Escritura de código</th><td>Cada línea la escribe la persona.</td><td>La persona especifica y corrige borradores.</td></tr>
+                            <tr><th scope="row">Búsqueda de ayuda</th><td>Foros y documentación.</td><td>Consultas con contexto, contrastadas con fuentes oficiales.</td></tr>
+                            <tr><th scope="row">Depuración</th><td>Lectura de errores y pruebas manuales.</td><td>Hipótesis del asistente que hay que confirmar.</td></tr>
+                            <tr><th scope="row">Revisión</th><td>Se revisa código de otras personas.</td><td>También se revisa código generado por máquinas.</td></tr>
+                            <tr><th scope="row">Aprendizaje</th><td>Sintaxis y bibliotecas.</td><td>Fundamentos, diseño y criterio para evaluar.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="tareas">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="tareas">¿Qué se delega y qué no?</h2>
+                    <p>Filtra las tareas según lo fácil que es apoyarse en la IA. Es una clasificación orientativa, no una regla.</p>
+                </div>
+                <div class="filtros" role="group" aria-label="Filtrar tareas">
+                    <button type="button" class="filtro" data-filtro="todas" aria-pressed="true">Todas</button>
+                    <button type="button" class="filtro" data-filtro="delegable" aria-pressed="false">Fáciles de delegar</button>
+                    <button type="button" class="filtro" data-filtro="humano" aria-pressed="false">Requieren criterio humano</button>
+                </div>
+                <p id="estado-filtro" class="ayuda" role="status" aria-live="polite"></p>
+                <div class="tarjetas" style="margin-top: 1rem;">
+                    <article class="tarjeta" data-tipo="delegable"><span class="etiqueta delegable">Fácil de delegar</span><h3>Código repetitivo</h3><p>Estructuras estándar, formularios, conversiones de formato.</p></article>
+                    <article class="tarjeta" data-tipo="delegable"><span class="etiqueta delegable">Fácil de delegar</span><h3>Traducción entre lenguajes</h3><p>Pasar una función de un lenguaje a otro como punto de partida.</p></article>
+                    <article class="tarjeta" data-tipo="delegable"><span class="etiqueta delegable">Fácil de delegar</span><h3>Primeras pruebas y documentación</h3><p>Borradores de pruebas unitarias y comentarios de funciones.</p></article>
+                    <article class="tarjeta" data-tipo="delegable"><span class="etiqueta delegable">Fácil de delegar</span><h3>Explicar código desconocido</h3><p>Resúmenes de qué hace un módulo heredado.</p></article>
+                    <article class="tarjeta" data-tipo="humano"><span class="etiqueta humano">Criterio humano</span><h3>Entender el problema real</h3><p>Hablar con usuarios, detectar necesidades y definir qué construir.</p></article>
+                    <article class="tarjeta" data-tipo="humano"><span class="etiqueta humano">Criterio humano</span><h3>Decisiones de arquitectura</h3><p>Elegir entre alternativas con costos, plazos y riesgos distintos.</p></article>
+                    <article class="tarjeta" data-tipo="humano"><span class="etiqueta humano">Criterio humano</span><h3>Seguridad y calidad</h3><p>Decidir qué es aceptable y asumir la responsabilidad del resultado.</p></article>
+                    <article class="tarjeta" data-tipo="humano"><span class="etiqueta humano">Criterio humano</span><h3>Ética y comunicación</h3><p>Evaluar impactos, explicar decisiones y trabajar en equipo.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="habilidades">
+            <div class="container">
+                <div class="dos-columnas">
+                    <div>
+                        <h2 id="habilidades">Habilidades que ganan valor</h2>
+                        <ul class="lista-marcas" style="margin-top: 1.2rem;">
+                            <li><strong>Fundamentos sólidos:</strong> estructuras de datos, algoritmos y arquitectura, para juzgar si una propuesta es adecuada.</li>
+                            <li><strong>Lectura y revisión crítica de código</strong>, propio y ajeno.</li>
+                            <li><strong>Pruebas y seguridad:</strong> saber qué verificar y cómo.</li>
+                            <li><strong>Comunicación precisa:</strong> describir con claridad qué se necesita, también a un asistente.</li>
+                            <li><strong>Aprendizaje continuo:</strong> las herramientas cambian cada año.</li>
+                        </ul>
+                    </div>
+                    <div class="aviso">
+                        <p><strong>Para quienes estudian programación:</strong> usar IA para entender es distinto de usarla para evitar pensar. Intenta primero, pide ayuda después y explica con tus palabras lo que entregas. Esa práctica es la que construye criterio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container paginador">
+            <a href="ventajas y riesgos.html" rel="prev"><small>← Anterior</small>Ventajas y riesgos</a>
+            <a class="sig" href="index.html" rel="next"><small>Volver →</small>Inicio</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <p><strong>Programar con IA</strong><br>Inteligencia Artificial aplicada al desarrollo de software</p>
+            <p>Parcial 2 - Desarrollo de Software V<br>Universidad Tecnológica de Panamá</p>
+            <a href="#contenido">Volver al contenido ↑</a>
+        </div>
+        <div class="legal"><div class="container"><span>Contenido educativo</span><span>© <span id="anio">2026</span> Victoria Cedeño</span></div></div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/futuro.js"></script>
+</body>
+</html>

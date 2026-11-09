@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicaciones de la IA en el desarrollo: generación de código, depuración, documentación y pruebas, con ejemplos.">
+    <title>Aplicaciones | Inteligencia Artificial aplicada al desarrollo de software</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="index.html" aria-label="Programar con IA, ir al inicio"><span class="brand-icon" aria-hidden="true">✦</span><span>PROGRAMAR CON IA<small>Desarrollo de Software V</small></span></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-list" id="nav-lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="funcionamiento.html">Funcionamiento</a></li>
+                    <li><a href="aplicaciones.html" class="activo" aria-current="page">Aplicaciones</a></li>
+                    <li><a href="demostracion.html">Demostración</a></li>
+                    <li><a href="ventajas y riesgos.html">Ventajas y riesgos</a></li>
+                    <li><a href="futuro.html">Futuro</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra-progreso" aria-hidden="true"><span style="width: 43%"></span></div>
+    </header>
+    <div class="ubicacion">
+        <div class="container">
+            <span>Sección 3 de 7: <strong>Aplicaciones</strong></span>
+            <span>Tema: Inteligencia Artificial aplicada al desarrollo de software</span>
+        </div>
+    </div>
+    <main id="contenido" tabindex="-1">
+
+        <div class="container cabecera-pagina">
+            <h1>Aplicaciones en el ciclo de desarrollo</h1>
+            <p>Cuatro tareas donde los asistentes de IA ya forman parte del trabajo diario. Cada una incluye un ejemplo y la verificación que debe hacer una persona.</p>
+        </div>
+
+        <section class="seccion" aria-labelledby="tareas">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="tareas">Explora las tareas</h2>
+                    <p>Usa las pestañas o las flechas del teclado.</p>
+                </div>
+
+                <div class="pestanas" role="tablist" aria-label="Aplicaciones de la IA">
+                    <button class="pestana" role="tab" id="pest-generacion" data-panel="generacion" aria-controls="generacion" aria-selected="true" type="button">Generación de código</button>
+                    <button class="pestana" role="tab" id="pest-depuracion" data-panel="depuracion" aria-controls="depuracion" aria-selected="false" type="button">Depuración</button>
+                    <button class="pestana" role="tab" id="pest-documentacion" data-panel="documentacion" aria-controls="documentacion" aria-selected="false" type="button">Documentación</button>
+                    <button class="pestana" role="tab" id="pest-pruebas" data-panel="pruebas" aria-controls="pruebas" aria-selected="false" type="button">Pruebas</button>
+                </div>
+
+                <div class="panel-pestana" role="tabpanel" id="generacion" aria-labelledby="pest-generacion">
+                    <p>El asistente convierte una descripción en un primer borrador: funciones, clases, consultas SQL o estructuras de una página. Es útil sobre todo en tareas conocidas y repetitivas.</p>
+                    <div class="comparacion">
+                        <div>
+                            <h4>Instrucción</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">prompt</span></div>
+<pre><code>Escribe una función en JavaScript que reciba
+un arreglo de notas y devuelva el promedio,
+ignorando los valores que no sean números.</code></pre></div>
+                        </div>
+                        <div>
+                            <h4>Código propuesto</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">promedio.js</span></div>
+<pre><code><span class="k">function</span> <span class="f">promedio</span>(notas) {
+  <span class="k">const</span> validas = notas.<span class="f">filter</span>(Number.isFinite);
+  <span class="k">if</span> (validas.length === <span class="n">0</span>) <span class="k">return</span> <span class="n">0</span>;
+  <span class="k">const</span> suma = validas.<span class="f">reduce</span>((a, b) =&gt; a + b, <span class="n">0</span>);
+  <span class="k">return</span> suma / validas.length;
+}</code></pre></div>
+                        </div>
+                    </div>
+                    <div class="aviso alerta"><p><strong>Qué verificar:</strong> que cubra casos límite (arreglo vacío), que no use funciones inexistentes y que realmente haga lo pedido.</p></div>
+                </div>
+
+                <div class="panel-pestana" role="tabpanel" id="depuracion" aria-labelledby="pest-depuracion" hidden>
+                    <p>Al pegar un fragmento con su mensaje de error, el asistente puede explicar la causa y sugerir una corrección. Sirve también para entender código ajeno.</p>
+                    <div class="comparacion">
+                        <div>
+                            <h4>Código con error</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">sumar.js · devuelve NaN</span></div>
+<pre><code><span class="k">function</span> <span class="f">sumar</span>(lista) {
+  <span class="k">let</span> total = <span class="n">0</span>;
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; <span class="bug">i &lt;= lista.length</span>; i++) {
+    total += lista[i];
+  }
+  <span class="k">return</span> total;
+}</code></pre></div>
+                        </div>
+                        <div>
+                            <h4>Corrección sugerida</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">sumar.js · corregido</span></div>
+<pre><code><span class="k">function</span> <span class="f">sumar</span>(lista) {
+  <span class="k">let</span> total = <span class="n">0</span>;
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; <span class="fix">i &lt; lista.length</span>; i++) {
+    total += lista[i];
+  }
+  <span class="k">return</span> total;
+}</code></pre></div>
+                        </div>
+                    </div>
+                    <p><strong>Explicación del asistente:</strong> con <code>&lt;=</code> el índice llega a <code>lista.length</code>, que está fuera del arreglo; <code>lista[i]</code> vale <code>undefined</code> y al sumarlo el total se convierte en <code>NaN</code>.</p>
+                    <div class="aviso alerta"><p><strong>Qué verificar:</strong> que la explicación coincida con el error real y que la corrección no cree otro problema.</p></div>
+                </div>
+
+                <div class="panel-pestana" role="tabpanel" id="documentacion" aria-labelledby="pest-documentacion" hidden>
+                    <p>La IA redacta comentarios, descripciones de funciones, guías de uso y resúmenes de cambios para mantener la documentación al día con menos esfuerzo.</p>
+                    <div class="comparacion">
+                        <div>
+                            <h4>Sin documentar</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">area.js</span></div>
+<pre><code><span class="k">function</span> <span class="f">area</span>(b, h) {
+  <span class="k">if</span> (b &lt;= <span class="n">0</span> || h &lt;= <span class="n">0</span>) {
+    <span class="k">throw new</span> RangeError(<span class="s">'Medidas inválidas'</span>);
+  }
+  <span class="k">return</span> b * h;
+}</code></pre></div>
+                        </div>
+                        <div>
+                            <h4>Documentación generada</h4>
+                            <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">area.js</span></div>
+<pre><code><span class="c">/**
+ * Calcula el área de un rectángulo.
+ * @param {number} b - Base (mayor que 0).
+ * @param {number} h - Altura (mayor que 0).
+ * @returns {number} Área en unidades cuadradas.
+ * @throws {RangeError} Si b o h no son positivos.
+ */</span></code></pre></div>
+                        </div>
+                    </div>
+                    <div class="aviso alerta"><p><strong>Qué verificar:</strong> que la documentación describa lo que el código hace de verdad, no lo que «debería» hacer.</p></div>
+                </div>
+
+                <div class="panel-pestana" role="tabpanel" id="pruebas" aria-labelledby="pest-pruebas" hidden>
+                    <p>Dado un fragmento de código, el asistente propone casos de prueba, incluidos los límites que a veces se olvidan: vacío, valores negativos o texto con tildes.</p>
+                    <div class="ventana"><div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">palindromo.test.js · estilo Jest</span></div>
+<pre><code><span class="f">describe</span>(<span class="s">'esPalindromo'</span>, () =&gt; {
+  <span class="f">test</span>(<span class="s">'reconoce una palabra simple'</span>, () =&gt;
+    <span class="f">expect</span>(esPalindromo(<span class="s">'radar'</span>)).toBe(<span class="k">true</span>));
+
+  <span class="f">test</span>(<span class="s">'ignora mayúsculas, espacios y tildes'</span>, () =&gt;
+    <span class="f">expect</span>(esPalindromo(<span class="s">'Anita lava la tina'</span>)).toBe(<span class="k">true</span>));
+
+  <span class="f">test</span>(<span class="s">'rechaza un texto que no lo es'</span>, () =&gt;
+    <span class="f">expect</span>(esPalindromo(<span class="s">'hola'</span>)).toBe(<span class="k">false</span>));
+
+  <span class="f">test</span>(<span class="s">'acepta la cadena vacía'</span>, () =&gt;
+    <span class="f">expect</span>(esPalindromo(<span class="s">''</span>)).toBe(<span class="k">true</span>));
+});</code></pre></div>
+                    <div class="aviso alerta"><p><strong>Qué verificar:</strong> unas pruebas generadas por IA pueden dar una falsa sensación de seguridad si repiten los mismos supuestos del código. Una persona debe decidir qué casos importan.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="herramientas">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="herramientas">Tres formas de trabajar con IA</h2>
+                    <p>Las herramientas cambian rápido; los tipos de uso se mantienen.</p>
+                </div>
+                <div class="tabla-scroll">
+                    <table>
+                        <caption>Tipos de herramientas de IA para programar</caption>
+                        <thead>
+                            <tr><th scope="col">Tipo</th><th scope="col">Cómo se usa</th><th scope="col">Ejemplos</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Autocompletado en el editor</th><td>Sugiere la siguiente línea o bloque mientras se escribe.</td><td>GitHub Copilot</td></tr>
+                            <tr><th scope="row">Chat conversacional</th><td>Se hacen preguntas, se pegan errores y se pide explicar o reescribir código.</td><td>ChatGPT, Claude, Gemini</td></tr>
+                            <tr><th scope="row">Agentes de programación</th><td>Ejecutan tareas de varios pasos: leen archivos, editan, corren pruebas y corrigen.</td><td>Claude Code, modo agente de Copilot, Cursor</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="aviso">
+                    <p>La evidencia disponible sobre su efecto en la productividad es mixta: depende del tipo de tarea y de la experiencia de quien programa. Se analiza en <a href="ventajas y riesgos.html">Ventajas y riesgos</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container paginador">
+            <a href="funcionamiento.html" rel="prev"><small>← Anterior</small>Funcionamiento</a>
+            <a class="sig" href="demostracion.html" rel="next"><small>Siguiente →</small>Demostración</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <p><strong>Programar con IA</strong><br>Inteligencia Artificial aplicada al desarrollo de software</p>
+            <p>Parcial 2 - Desarrollo de Software V<br>Universidad Tecnológica de Panamá</p>
+            <a href="#contenido">Volver al contenido ↑</a>
+        </div>
+        <div class="legal"><div class="container"><span>Contenido educativo</span><span>© <span id="anio">2026</span> Victoria Cedeño</span></div></div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/aplicaciones.js"></script>
+</body>
+</html>

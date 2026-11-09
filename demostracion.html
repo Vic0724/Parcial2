@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demostración interactiva: una instrucción, el código generado y el proceso de revisión con pruebas.">
+    <title>Demostración práctica | Inteligencia Artificial aplicada al desarrollo de software</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="index.html" aria-label="Programar con IA, ir al inicio"><span class="brand-icon" aria-hidden="true">✦</span><span>PROGRAMAR CON IA<small>Desarrollo de Software V</small></span></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-list" id="nav-lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="funcionamiento.html">Funcionamiento</a></li>
+                    <li><a href="aplicaciones.html">Aplicaciones</a></li>
+                    <li><a href="demostracion.html" class="activo" aria-current="page">Demostración</a></li>
+                    <li><a href="ventajas y riesgos.html">Ventajas y riesgos</a></li>
+                    <li><a href="futuro.html">Futuro</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra-progreso" aria-hidden="true"><span style="width: 57%"></span></div>
+    </header>
+    <div class="ubicacion">
+        <div class="container">
+            <span>Sección 4 de 7: <strong>Demostración</strong></span>
+            <span>Tema: Inteligencia Artificial aplicada al desarrollo de software</span>
+        </div>
+    </div>
+    <main id="contenido" tabindex="-1">
+
+        <div class="container cabecera-pagina">
+            <h1>Demostración práctica</h1>
+            <p>Escribe una instrucción, observa el código propuesto, ponlo a prueba y decide si lo aceptas. Así se ve el proceso de revisión que exige trabajar con IA.</p>
+        </div>
+
+        <section class="seccion" aria-labelledby="como-usar">
+            <div class="container">
+                <h2 id="como-usar">Cómo usar la demostración</h2>
+                <ol class="lista-marcas" style="margin-top: 1rem;">
+                    <li><strong>Elige un ejemplo</strong> o escribe tu propia instrucción.</li>
+                    <li><strong>Genera el código</strong> y léelo con calma.</li>
+                    <li><strong>Revisa:</strong> ejecuta las pruebas y marca la lista de verificación.</li>
+                    <li><strong>Decide:</strong> acepta o descarta el resultado. Puedes empezar de nuevo cuando quieras.</li>
+                </ol>
+                <div class="aviso alerta">
+                    <p><strong>Importante:</strong> es una <strong>simulación educativa</strong>. No se conecta a un modelo real: reconoce cuatro tareas (factorial, correo, promedio y palíndromo) y muestra respuestas preparadas que incluyen errores intencionales, para practicar la revisión. Las pruebas sí se ejecutan de verdad en tu navegador.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="etapa-1">
+            <div class="container" style="display: grid; gap: 1.5rem;">
+
+                <div class="etapa">
+                    <div class="etapa-titulo"><span class="num" aria-hidden="true">1</span><h2 id="etapa-1">Escribe la instrucción</h2></div>
+                    <form id="form-instruccion" novalidate>
+                        <fieldset>
+                            <legend>Instrucción para el asistente</legend>
+                            <div>
+                                <label for="ejemplo">Ejemplo rápido (opcional)</label>
+                                <select id="ejemplo" name="ejemplo">
+                                    <option value="">Seleccione un ejemplo…</option>
+                                    <option value="factorial">Factorial de un número</option>
+                                    <option value="correo">Validar un correo electrónico</option>
+                                    <option value="promedio">Promedio de notas</option>
+                                    <option value="palindromo">Detectar un palíndromo</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="instruccion">Tu instrucción</label>
+                                <textarea id="instruccion" name="instruccion" rows="3" maxlength="200" required placeholder="Ej.: Escribe una función que calcule el factorial de un número."></textarea>
+                                <div class="contador" id="contador-instruccion" aria-hidden="true">0 / 200</div>
+                                <p class="ayuda">Mínimo 8 caracteres. Menciona la tarea, por ejemplo «factorial», «correo», «promedio» o «palíndromo».</p>
+                            </div>
+                        </fieldset>
+                        <div class="botonera" style="margin-top: 1rem;">
+                            <button type="submit" class="btn btn-primario">Generar código</button>
+                            <button type="button" class="btn btn-secundario" id="btn-reiniciar">Empezar de nuevo</button>
+                        </div>
+                    </form>
+                    <div class="estado espera" id="estado-generacion" role="status" aria-live="polite">Esperando una instrucción</div>
+
+                    <div class="ventana">
+                        <div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre" id="nombre-archivo">sin-archivo.js</span></div>
+                        <pre><code id="codigo-generado">// Aquí aparecerá el código generado.</code></pre>
+                    </div>
+                </div>
+
+                <div class="etapa" id="etapa-revision" aria-disabled="true">
+                    <div class="etapa-titulo"><span class="num" aria-hidden="true">2</span><h2>Revisa el código</h2></div>
+                    <fieldset>
+                        <legend>Lista de verificación humana</legend>
+                        <ul class="lista-chequeo" id="lista-revision">
+                            <li><label><input type="checkbox"> Entiendo qué hace cada línea del código.</label></li>
+                            <li><label><input type="checkbox"> Pensé en los casos límite: vacío, negativos, texto inesperado.</label></li>
+                            <li><label><input type="checkbox"> No contiene datos sensibles ni usa funciones que desconozco.</label></li>
+                            <li><label><input type="checkbox"> Ejecuté las pruebas y entiendo sus resultados.</label></li>
+                        </ul>
+                    </fieldset>
+                    <div class="botonera">
+                        <button type="button" class="btn btn-primario" id="btn-pruebas">Ejecutar pruebas</button>
+                        <button type="button" class="btn btn-secundario" id="btn-corregir" hidden>Pedir una corrección al asistente</button>
+                    </div>
+                    <div class="estado espera" id="estado-pruebas" role="status" aria-live="polite">Pruebas sin ejecutar</div>
+                    <div class="tabla-scroll" id="contenedor-tabla" hidden>
+                        <table>
+                            <caption>Resultados de las pruebas</caption>
+                            <thead><tr><th scope="col">Prueba</th><th scope="col">Esperado</th><th scope="col">Obtenido</th><th scope="col">Resultado</th></tr></thead>
+                            <tbody id="tabla-pruebas"></tbody>
+                        </table>
+                    </div>
+                    <div class="aviso error" id="hallazgo" hidden><p></p></div>
+                </div>
+
+                <div class="etapa" id="etapa-decision" aria-disabled="true">
+                    <div class="etapa-titulo"><span class="num" aria-hidden="true">3</span><h2>Decide</h2></div>
+                    <p>La decisión final es de la persona. Se habilita cuando las pruebas pasan.</p>
+                    <div class="botonera">
+                        <button type="button" class="btn btn-primario" id="btn-aceptar">Aceptar el código</button>
+                        <button type="button" class="btn btn-secundario" id="btn-rechazar">Descartar</button>
+                    </div>
+                    <div class="aviso" id="mensaje-final" role="status" aria-live="polite" hidden><p></p></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="aprendizaje">
+            <div class="container">
+                <h2 id="aprendizaje">Qué demuestra este ejercicio</h2>
+                <ul class="lista-marcas" style="margin-top: 1rem;">
+                    <li>Un código que «parece correcto» puede fallar en casos límite que no se ven a simple vista.</li>
+                    <li>Las pruebas detectan errores, pero no sustituyen entender el código.</li>
+                    <li>Corregir es un diálogo: el hallazgo de la revisión mejora la siguiente propuesta.</li>
+                    <li>Aceptar o descartar el resultado es una responsabilidad humana.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="container paginador">
+            <a href="aplicaciones.html" rel="prev"><small>← Anterior</small>Aplicaciones</a>
+            <a class="sig" href="ventajas y riesgos.html" rel="next"><small>Siguiente →</small>Ventajas y riesgos</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <p><strong>Programar con IA</strong><br>Inteligencia Artificial aplicada al desarrollo de software</p>
+            <p>Parcial 2 - Desarrollo de Software V<br>Universidad Tecnológica de Panamá</p>
+            <a href="#contenido">Volver al contenido ↑</a>
+        </div>
+        <div class="legal"><div class="container"><span>Contenido educativo</span><span>© <span id="anio">2026</span> Victoria Cedeño</span></div></div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cómo los modelos de IA interpretan instrucciones y generan código: tokens, predicción y revisión.">
+    <title>Funcionamiento | Inteligencia Artificial aplicada al desarrollo de software</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="index.html" aria-label="Programar con IA, ir al inicio"><span class="brand-icon" aria-hidden="true">✦</span><span>PROGRAMAR CON IA<small>Desarrollo de Software V</small></span></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-list" id="nav-lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="funcionamiento.html" class="activo" aria-current="page">Funcionamiento</a></li>
+                    <li><a href="aplicaciones.html">Aplicaciones</a></li>
+                    <li><a href="demostracion.html">Demostración</a></li>
+                    <li><a href="ventajas y riesgos.html">Ventajas y riesgos</a></li>
+                    <li><a href="futuro.html">Futuro</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra-progreso" aria-hidden="true"><span style="width: 29%"></span></div>
+    </header>
+    <div class="ubicacion">
+        <div class="container">
+            <span>Sección 2 de 7: <strong>Funcionamiento</strong></span>
+            <span>Tema: Inteligencia Artificial aplicada al desarrollo de software</span>
+        </div>
+    </div>
+    <main id="contenido" tabindex="-1">
+
+        <div class="container cabecera-pagina">
+            <h1>Cómo funciona un asistente de código</h1>
+            <p>De una frase en español a una función en JavaScript: el recorrido interno, explicado paso a paso.</p>
+        </div>
+
+        <section class="seccion" aria-labelledby="proceso">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="proceso">El recorrido de una instrucción</h2>
+                    <p>Selecciona cada etapa para ver qué ocurre. También puedes usar las flechas del teclado.</p>
+                </div>
+                <figure class="figura">
+                    <img src="img/flujo-modelo.jpg" width="900" height="260" alt="Diagrama de cinco etapas: instrucción, tokens, modelo, código propuesto y revisión humana, unidas por flechas.">
+                    <figcaption>Resumen visual del proceso. La etapa 5 es la que no puede omitirse.</figcaption>
+                </figure>
+
+                <div style="margin-top: 2rem;" role="tablist" aria-label="Etapas del proceso" class="pasos">
+                    <button class="paso-boton" role="tab" id="tab-1" aria-controls="paso-1" aria-selected="true" type="button">1. Instrucción</button>
+                    <button class="paso-boton" role="tab" id="tab-2" aria-controls="paso-2" aria-selected="false" type="button">2. Tokens</button>
+                    <button class="paso-boton" role="tab" id="tab-3" aria-controls="paso-3" aria-selected="false" type="button">3. Predicción</button>
+                    <button class="paso-boton" role="tab" id="tab-4" aria-controls="paso-4" aria-selected="false" type="button">4. Código</button>
+                    <button class="paso-boton" role="tab" id="tab-5" aria-controls="paso-5" aria-selected="false" type="button">5. Revisión</button>
+                </div>
+
+                <div class="paso-panel" role="tabpanel" id="paso-1" aria-labelledby="tab-1">
+                    <h3>La persona describe lo que necesita</h3>
+                    <p>La instrucción puede ser una frase («valida un correo»), un fragmento de código incompleto o un mensaje de error. El asistente añade el <strong>contexto</strong> disponible: el archivo abierto, otros archivos del proyecto o la conversación anterior. Cuanto más claro es el pedido, menos tiene que «adivinar» el modelo.</p>
+                </div>
+                <div class="paso-panel" role="tabpanel" id="paso-2" aria-labelledby="tab-2" hidden>
+                    <h3>El texto se convierte en tokens</h3>
+                    <p>El modelo no lee letras sueltas ni palabras completas, sino <strong>tokens</strong>: fragmentos que se transforman en números. En la sección siguiente puedes ver una versión simplificada de este paso.</p>
+                </div>
+                <div class="paso-panel" role="tabpanel" id="paso-3" aria-labelledby="tab-3" hidden>
+                    <h3>El modelo calcula qué token es más probable</h3>
+                    <p>Mediante la arquitectura Transformer, el modelo pondera qué partes del contexto son relevantes para cada nueva predicción <a href="conclusion.html#ref-1">[1]</a>. Para cada posición calcula probabilidades sobre todos los tokens posibles. Ejemplo ilustrativo después de <code>return</code> en una función de suma:</p>
+                    <div class="barras" role="img" aria-label="Probabilidades ilustrativas: a + b 78 por ciento, a - b 9 por ciento, a * b 6 por ciento, otros 7 por ciento.">
+                        <div class="barra-fila"><span>a + b</span><div class="pista"><span style="width:78%"></span></div><span>78 %</span></div>
+                        <div class="barra-fila"><span>a - b</span><div class="pista"><span style="width:9%"></span></div><span>9 %</span></div>
+                        <div class="barra-fila"><span>a * b</span><div class="pista"><span style="width:6%"></span></div><span>6 %</span></div>
+                        <div class="barra-fila"><span>otros</span><div class="pista"><span style="width:7%"></span></div><span>7 %</span></div>
+                    </div>
+                    <p class="ayuda" style="margin-top: 0.8rem;">Valores inventados con fines didácticos; no provienen de un modelo real.</p>
+                </div>
+                <div class="paso-panel" role="tabpanel" id="paso-4" aria-labelledby="tab-4" hidden>
+                    <h3>El código se construye token por token</h3>
+                    <p>Se elige un token (no siempre el más probable, porque hay un parámetro de «temperatura» que introduce variación), se añade a lo ya escrito y se repite. Por eso la misma instrucción puede producir respuestas distintas, y por eso el resultado puede ser <em>plausible pero incorrecto</em>.</p>
+                </div>
+                <div class="paso-panel" role="tabpanel" id="paso-5" aria-labelledby="tab-5" hidden>
+                    <h3>La persona revisa, prueba y decide</h3>
+                    <p>El modelo no ejecuta ni verifica su propia propuesta, a menos que se le conecte a herramientas. La revisión humana comprueba que el código sea correcto, seguro y comprensible. Practica este paso en la <a href="demostracion.html">demostración</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="tokenizador">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="tokenizador">Prueba un tokenizador</h2>
+                    <p>Escribe una instrucción o una línea de código y mira cómo se divide. Esta versión separa palabras, números y símbolos; los modelos reales usan subpalabras, así que sus cifras serán distintas.</p>
+                </div>
+                <div class="formulario">
+                    <div>
+                        <label for="texto-token">Texto a dividir</label>
+                        <input type="text" id="texto-token" name="texto-token" maxlength="120" value="const total = precio * 3;" autocomplete="off">
+                        <div class="contador" id="contador-token" aria-hidden="true"></div>
+                    </div>
+                    <div>
+                        <strong id="total-tokens" aria-live="polite">0 tokens</strong>
+                        <div class="fichas" id="salida-tokens" aria-label="Tokens resultantes"></div>
+                        <p class="ayuda" style="margin-top: 0.8rem;">Violeta: palabras y números. Verde: símbolos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="entrenamiento">
+            <div class="container">
+                <div class="dos-columnas">
+                    <div>
+                        <h2 id="entrenamiento">Cómo aprende el modelo</h2>
+                        <ol class="lista-marcas" style="margin-top: 1.2rem;">
+                            <li><strong>Preentrenamiento.</strong> El modelo lee enormes cantidades de texto y código y aprende a predecir el siguiente token <a href="conclusion.html#ref-2">[2]</a>.</li>
+                            <li><strong>Especialización en código.</strong> Se refuerza con repositorios públicos para que reconozca patrones de programación <a href="conclusion.html#ref-4">[4]</a>.</li>
+                            <li><strong>Ajuste con instrucciones y retroalimentación humana.</strong> Personas evalúan respuestas y el modelo se adapta para ser más útil y seguir lo que se le pide <a href="conclusion.html#ref-3">[3]</a>.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h2>Límites que conviene recordar</h2>
+                        <ul class="lista-marcas" style="margin-top: 1.2rem;">
+                            <li>Su conocimiento termina en la fecha de entrenamiento: pueden desconocer versiones nuevas de una biblioteca.</li>
+                            <li>La ventana de contexto es finita: en proyectos grandes no «ve» todo el código.</li>
+                            <li>Puede inventar funciones o parámetros que no existen.</li>
+                            <li>No conoce las reglas internas de tu equipo si no se las das.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container paginador">
+            <a href="index.html" rel="prev"><small>← Anterior</small>Inicio</a>
+            <a class="sig" href="aplicaciones.html" rel="next"><small>Siguiente →</small>Aplicaciones</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <p><strong>Programar con IA</strong><br>Inteligencia Artificial aplicada al desarrollo de software</p>
+            <p>Parcial 2 - Desarrollo de Software V<br>Universidad Tecnológica de Panamá</p>
+            <a href="#contenido">Volver al contenido ↑</a>
+        </div>
+        <div class="legal"><div class="container"><span>Contenido educativo</span><span>© <span id="anio">2026</span> Victoria Cedeño</span></div></div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/funcionamiento.js"></script>
+</body>
+</html>

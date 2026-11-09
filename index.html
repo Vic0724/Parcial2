@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introducción a la inteligencia artificial aplicada al desarrollo de software: qué es, vocabulario y evolución.">
+    <title>Inicio | Inteligencia Artificial aplicada al desarrollo de software</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-layout">
+            <a class="brand" href="index.html" aria-label="Programar con IA, ir al inicio"><span class="brand-icon" aria-hidden="true">✦</span><span>PROGRAMAR CON IA<small>Desarrollo de Software V</small></span></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-list" id="nav-lista">
+                    <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+                    <li><a href="funcionamiento.html">Funcionamiento</a></li>
+                    <li><a href="aplicaciones.html">Aplicaciones</a></li>
+                    <li><a href="demostracion.html">Demostración</a></li>
+                    <li><a href="ventajas y riesgos.html">Ventajas y riesgos</a></li>
+                    <li><a href="futuro.html">Futuro</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra-progreso" aria-hidden="true"><span style="width: 14%"></span></div>
+    </header>
+    <div class="ubicacion">
+        <div class="container">
+            <span>Sección 1 de 7: <strong>Inicio</strong></span>
+            <span>Tema: INTELIGENCIA ARTIFICIAL APLICADA AL DESARROLLO DE SOFTWARE</span>
+        </div>
+    </div>
+    <main id="contenido" tabindex="-1">
+
+        <div class="container">
+            <section class="hero" aria-labelledby="titulo-principal">
+                <div>
+                    <p class="insignia">Proyecto del Parcial 2 - Desarrollo de Software V</p>
+                    <h1 id="titulo-principal">Inteligencia Artificial aplicada al <span class="acento">Desarrollo</span> de <span class="acento-2">Software</span></h1>
+                    <p class="lead">Cómo los asistentes de IA entienden una instrucción, proponen código y por qué la última palabra sigue siendo de la persona que programa.</p>
+                    <div class="acciones">
+                        <a class="btn btn-primario" href="demostracion.html">Probar la demostración</a>
+                        <a class="btn btn-secundario" href="funcionamiento.html">¿Cómo funciona por dentro?</a>
+                    </div>
+                </div>
+                <figure class="ventana secuencia" aria-label="Ejemplo de código generado por un asistente de IA">
+                    <div class="ventana-barra"><span class="punto r"></span><span class="punto a"></span><span class="punto v"></span><span class="nombre">promedio.js</span></div>
+                    <pre><code><span class="ln" style="--i:0"><span class="c">// Instrucción: "Calcula el promedio de las notas"</span></span>
+<span class="ln" style="--i:1"> </span>
+<span class="ln" style="--i:2"><span class="k">function</span> <span class="f">promedio</span>(notas) {</span>
+<span class="ln" style="--i:3">  <span class="k">const</span> validas = notas.<span class="f">filter</span>(Number.isFinite);</span>
+<span class="ln" style="--i:4">  <span class="k">if</span> (validas.length === <span class="n">0</span>) <span class="k">return</span> <span class="n">0</span>;</span>
+<span class="ln" style="--i:5">  <span class="k">const</span> suma = validas.<span class="f">reduce</span>((a, b) =&gt; a + b, <span class="n">0</span>);</span>
+<span class="ln" style="--i:6">  <span class="k">return</span> suma / validas.length;</span>
+<span class="ln" style="--i:7">}</span>
+                </figure>
+            </section>
+        </div>
+
+        <section class="seccion" aria-labelledby="que-es">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="que-es">¿Qué es la Inteligencia Artificial aplicada al desarrollo de software?</h2>
+                    <p>Es el uso de modelos de inteligencia artificial, sobre todo modelos de lenguaje de gran tamaño, como apoyo en tareas de ingeniería de software: escribir código, encontrar errores, documentar y probar programas.</p>
+                </div>
+                <div class="dos-columnas">
+                    <div>
+                        <p>Un asistente recibe una instrucción en lenguaje natural («haz una función que valide un correo») y responde con una propuesta de código. No <em>comprende</em> el programa como lo haría una persona: genera la continuación más probable a partir de los enormes volúmenes de texto y código con los que fue entrenado <a href="conclusion.html#ref-4">[4]</a>.</p>
+                        <p style="margin-top: 1rem;">Por eso la IA <strong>acelera</strong> el trabajo, pero no lo reemplaza: el código propuesto es un borrador que alguien debe leer, probar y aceptar o rechazar. Esa idea guía todo este sitio.</p>
+                        <div class="aviso">
+                            <p><strong>Idea central:</strong> la IA propone, la persona verifica y decide.</p>
+                        </div>
+                    </div>
+                    <figure class="figura">
+                        <img src="img/ecosistema.jpg" width="520" height="400" alt="Diagrama con la persona que programa al centro, rodeada por cuatro tareas: generar código, depurar, documentar y probar.">
+                        <figcaption>Cuatro tareas del ciclo de desarrollo donde hoy se usa la IA.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="vocabulario">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="vocabulario">Vocabulario mínimo</h2>
+                    <p>Cuatro términos que aparecerán en las demás páginas.</p>
+                </div>
+                <dl class="glosario">
+                    <dt>Modelo de lenguaje</dt>
+                    <dd>Sistema entrenado para predecir el texto que sigue a una secuencia. Con suficientes datos de código, también predice código.</dd>
+                    <dt>Prompt</dt>
+                    <dd>La instrucción y el contexto que se entregan al modelo. Su calidad influye mucho en la calidad de la respuesta.</dd>
+                    <dt>Token</dt>
+                    <dd>Fragmento de texto (palabra, parte de palabra o símbolo) con el que el modelo trabaja internamente.</dd>
+                    <dt>Contexto</dt>
+                    <dd>Todo lo que el modelo «ve» al responder: tu instrucción, el código abierto y la conversación previa. Su tamaño es limitado.</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="linea-tiempo">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="linea-tiempo">De los autocompletados a los agentes</h2>
+                    <p>Una síntesis de cómo llegamos hasta aquí. Las fechas corresponden a publicaciones y lanzamientos conocidos:</p>
+                </div>
+                <ol class="linea-tiempo">
+                    <li><span class="anio">2017</span><h3>La arquitectura Transformer</h3><p>Se publica «Attention Is All You Need», base técnica de los modelos de lenguaje actuales.</p></li>
+                    <li><span class="anio">2020</span><h3>Modelos que aprenden con ejemplos</h3><p>GPT-3 muestra que un modelo grande puede resolver tareas nuevas a partir de unas pocas muestras en el prompt.</p></li>
+                    <li><span class="anio">2021</span><h3>Modelos especializados en código</h3><p>Codex, entrenado con código público, resuelve problemas de programación y da origen a GitHub Copilot.</p></li>
+                    <li><span class="anio">2022</span><h3>Asistentes conversacionales</h3><p>El ajuste con retroalimentación humana permite que los modelos sigan instrucciones y mantengan un diálogo.</p></li>
+                    <li><span class="anio">Hoy</span><h3>Agentes dentro del repositorio</h3><p>Los asistentes ya no solo sugieren líneas: leen el proyecto, ejecutan pruebas y proponen cambios completos.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="ruta">
+            <div class="container">
+                <div class="encabezado-seccion">
+                    <h2 id="ruta">Recorrido del sitio</h2>
+                    <p>Puedes leer en orden o saltar directamente a la demostración.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <div class="footer-autora">
+                <img src="img/creadora.jpg" width="64" height="64" alt="Victoria Cedeño, creadora del sitio">
+                <div>
+                    <h2>Sobre la creadora</h2>
+                    <p><strong>Victoria Cedeño</strong>, Estudiante de la Facultad de Ingeniería de Sistemas Computacionales (FISC) de la Universidad Tecnológica de Panamá, cursando la Licenciatura en Desarrollo y Gestión de Software, grupo 1GS124. Este sitio web ha sido desarrollado como parte del Parcial 2 de la asignatura Desarrollo de Software V, con el propósito de poner en práctica los conocimientos adquiridos durante el curso.</p>
+                </div>
+            </div>
+
+
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <p><strong>Programar con IA</strong><br>Inteligencia Artificial aplicada al desarrollo de software</p>
+            <p>Parcial 2 - Desarrollo de Software V<br>Universidad Tecnológica de Panamá</p>
+            <a href="#contenido">Volver al contenido ↑</a>
+        </div>
+        <div class="legal"><div class="container"><span>Contenido educativo</span><span>© <span id="anio">2026</span> Victoria Cedeño</span></div></div>
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
